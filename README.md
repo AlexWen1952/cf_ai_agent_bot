@@ -35,7 +35,7 @@ Clone the repository and install dependencies:
 
 ```bash
 # Clone the repo
-git clone [https://github.com/AlexWen1952/cf_ai_agent_bot.git](https://github.com/AlexWen1952/cf_ai_agent_bot.git)
+git clone https://github.com/AlexWen1952/cf_ai_agent_bot.git
 
 # Navigate to the project folder
 cd cf_ai_agent_bot
