@@ -66,6 +66,9 @@
   --color-neutral-925: oklch(0.175 0 0) /* new */;
   --color-neutral-950: oklch(0.145 0 0);
 
+  /* Replaced Cloudflare Orange with a blue shade */
+  --color-cf-accent: theme(colors.blue.600); /* Using Tailwind's blue-600 */
+
   --color-red-650: oklch(0.55 0.238 27.4);
   --color-red-750: oklch(0.46 0.195 27.2);
 
@@ -116,7 +119,6 @@
 
 .dark {
   /* Component colors */
-
   /* Base colors */
   --color-ob-base-100: var(--color-neutral-950);
   --color-ob-base-200: var(--color-neutral-900);
@@ -160,10 +162,8 @@
 .btn {
   &.btn-primary {
     @apply border-ob-btn-primary-border bg-ob-btn-primary-bg text-ob-inverted shadow-xs;
-
     @variant interactive {
       @apply not-disabled:hover:border-ob-btn-primary-border-hover not-disabled:hover:bg-ob-btn-primary-bg-hover;
-
       @variant toggle {
         @apply not-disabled:border-ob-btn-primary-border-hover not-disabled:bg-ob-btn-primary-bg-hover;
       }
@@ -172,10 +172,8 @@
 
   &.btn-secondary {
     @apply border-ob-btn-secondary-border bg-ob-btn-secondary-bg text-ob-base-300 shadow-xs;
-
     @variant interactive {
       @apply not-disabled:hover:border-ob-btn-secondary-border-hover not-disabled:hover:bg-ob-btn-secondary-bg-hover;
-
       @variant toggle {
         @apply not-disabled:border-ob-btn-secondary-border-hover not-disabled:bg-ob-btn-secondary-bg-hover;
       }
@@ -184,10 +182,8 @@
 
   &.btn-ghost {
     @apply text-ob-base-300 border-transparent bg-transparent;
-
     @variant interactive {
       @apply not-disabled:hover:bg-ob-btn-ghost-bg-hover;
-
       @variant toggle {
         @apply not-disabled:bg-ob-btn-ghost-bg-hover;
       }
@@ -196,10 +192,8 @@
 
   &.btn-destructive {
     @apply border-ob-btn-destructive-border bg-ob-btn-destructive-bg text-white;
-
     @variant interactive {
       @apply not-disabled:hover:bg-ob-btn-destructive-bg-hover not-disabled:hover:border-ob-btn-destructive-border-hover;
-
       @variant toggle {
         @apply not-disabled:bg-ob-btn-destructive-bg-hover not-disabled:border-ob-btn-destructive-border-hover;
       }
@@ -207,7 +201,6 @@
   }
 
   @apply border;
-
   @variant interactive {
     @apply cursor-pointer transition-colors;
   }
@@ -226,11 +219,9 @@
 /* Use size variants for elements that need to match certain heights */
 .add-size-sm {
   @apply h-6.5 rounded px-2 text-sm;
-
   @variant square {
     @apply flex size-6.5 items-center justify-center px-0;
   }
-
   @variant circular {
     @apply flex size-6.5 items-center justify-center rounded-full px-0;
   }
@@ -238,11 +229,9 @@
 
 .add-size-md {
   @apply h-8 rounded-md px-2.5 text-base;
-
   @variant square {
     @apply flex size-8 items-center justify-center px-0;
   }
-
   @variant circular {
     @apply flex size-8 items-center justify-center rounded-full px-0;
   }
@@ -250,11 +239,9 @@
 
 .add-size-base {
   @apply h-9 rounded-md px-3 text-base;
-
   @variant square {
     @apply flex size-9 items-center justify-center px-0;
   }
-
   @variant circular {
     @apply flex size-9 items-center justify-center rounded-full px-0;
   }
@@ -263,12 +250,11 @@
 /* Database card animation */
 .db-card {
   animation: db-card-animation 3s linear infinite;
-  animation-play-state: paused; /* pause while group is not hovered */
-  stroke-dasharray: 100; /* length of each dash */
-
+  animation-play-state: paused;
+  stroke-dasharray: 100;
   &:is(:where(.group):hover *) {
     @media (hover: hover) {
-      animation-play-state: running; /* play while group is hovered */
+      animation-play-state: running;
     }
   }
 }
@@ -285,28 +271,4 @@
   }
 }
 
-/* SVG filters */
-.pixelate {
-  filter: url(#pixelate);
-}
-
-/* Ripple filter */
-.ripple {
-  filter: url(#ripple);
-}
-
-.float {
-  animation: float 5s linear infinite alternate;
-}
-
-@keyframes float {
-  to {
-    transform: translate(5px, 15px);
-  }
-}
-
-@keyframes refresh {
-  to {
-    transform: rotate(360deg) scale(0.9);
-  }
-}
+/*
